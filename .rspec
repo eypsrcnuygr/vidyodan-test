@@ -1,0 +1,6 @@
+--require spec_helper
+--require suite_helper
+--order rand
+--format documentation
+--format RspecJunitFormatter
+--out reports/report.xml
