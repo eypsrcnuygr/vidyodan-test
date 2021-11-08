@@ -1,0 +1,14 @@
+buy:
+  trade_type: "buy"
+  user_id: 23
+  symbol: "ABX"
+  shares: 30
+  price: 134
+  timestamp: <%= DateTime.strptime("1531522701000", "%Q").to_s(:db) %>
+sell:
+  trade_type: "sell"
+  user_id: 24
+  symbol: "ABX"
+  shares: 20
+  price: 133
+  timestamp: <%= DateTime.strptime("1531524301000", "%Q").to_s(:db) %>
