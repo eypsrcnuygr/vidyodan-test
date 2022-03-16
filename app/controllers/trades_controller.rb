@@ -3,6 +3,8 @@ require 'pry'
 class TradesController < ApplicationController
   rescue_from ActionController::MethodNotAllowed, with: :not_allowed
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
+
+  before_action -> { convert_times!(params) }, only: [:create]
   def index
     @trades = Trade.all unless params[:user_id] && params[:trade_type]
     @trades = Trade.where(trade_type: params[:trade_type]) if params[:trade_type]
@@ -12,19 +14,13 @@ class TradesController < ApplicationController
 
   def create
     @trade = Trade.create(set_params)
-    time_stamp_value = params[:timestamp].to_i / 1000
-    @trade.timestamp = DateTime.strptime("#{time_stamp_value}",'%s')
     render json: TradesSerializer.new(@trade).to_serialized_json, status: 201
   end
 
   def show
     @trade = Trade.find(params[:id])
 
-    if @trade
-      render json: TradesSerializer.new(@trade).to_serialized_json, status: 200
-    else
-      render :json 
-    end
+    render json: TradesSerializer.new(@trade).to_serialized_json, status: 200
   end
 
   def update
@@ -35,21 +31,22 @@ class TradesController < ApplicationController
     raise ActionController::MethodNotAllowed
   end
 
-
   private
 
+  def convert_times!(params)
+    params[:timestamp] = params[:timestamp].to_i / 1000
+  end
 
   def record_not_found(exception)
-    render json: {error: exception.message}.to_json, status: 404
-    return
+    render json: { error: exception.message }.to_json, status: 404
   end
 
   def not_allowed(exception)
-    render json: {error: exception.message}.to_json, status: 405
-    return
+    render json: { error: exception.message }.to_json, status: 405
   end
 
   def set_params
+    params[:timestamp] = DateTime.strptime(params[:timestamp].to_s, '%s')
     params.permit(:trade_type, :user_id, :symbol, :shares, :price, :timestamp)
   end
 end
