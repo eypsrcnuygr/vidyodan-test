@@ -13,6 +13,8 @@ gem 'puma', '~> 4.1'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
 
+gem 'pry'
+
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
