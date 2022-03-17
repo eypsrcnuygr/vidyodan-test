@@ -6,17 +6,23 @@ class TradesSerializer
   end
 
   def to_serialized_json
-    parsed_excluded_json = JSON.parse(@trade.to_json( :except => [:created_at, :updated_at]))
-    parsed_excluded_json['timestamp'] = parsed_excluded_json['timestamp'].to_time.to_i * 1000 if parsed_excluded_json['timestamp']
-    parsed_excluded_json 
+    excepter(@trade)
   end
 
   def to_serialized_json_all
-    result = @trade.map do |trade|
-      parsed_excluded_json = JSON.parse(trade.to_json( :except => [:created_at, :updated_at]))
-      parsed_excluded_json['timestamp'] = parsed_excluded_json['timestamp'].to_time.to_i * 1000 if parsed_excluded_json['timestamp']
-      parsed_excluded_json 
+    @trade.map do |trade|
+      excepter(trade)
     end
-    result
+  end
+
+  private
+
+  def excepter(trade)
+    parsed_excluded_json = JSON.parse(trade.to_json(except: %i[created_at updated_at]))
+    if parsed_excluded_json['timestamp']
+      parsed_excluded_json['timestamp'] =
+        parsed_excluded_json['timestamp'].to_time.to_i * 1000
+    end
+    parsed_excluded_json
   end
 end

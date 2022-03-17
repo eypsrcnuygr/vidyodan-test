@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="rspec" tests="15" skipped="0" failures="0" errors="0" time="0.127024" timestamp="2022-03-16T23:18:58+03:00" hostname="Acer-nitro-5">
+<testsuite name="rspec" tests="15" skipped="0" failures="0" errors="0" time="0.102589" timestamp="2022-03-17T16:04:12+03:00" hostname="Acer-nitro-5">
 <properties>
-<property name="seed" value="51312"/>
+<property name="seed" value="26846"/>
 </properties>
-<testcase classname="spec.requests.trades_request_spec" name="Trades POST /trades returns the created trade object" file="./spec/requests/trades_request_spec.rb" time="0.014770"></testcase>
-<testcase classname="spec.requests.trades_request_spec" name="Trades POST /trades adds a trade to the database" file="./spec/requests/trades_request_spec.rb" time="0.003703"></testcase>
-<testcase classname="spec.requests.trades_request_spec" name="Trades POST /trades returns http created" file="./spec/requests/trades_request_spec.rb" time="0.002839"></testcase>
-<testcase classname="spec.requests.trades_request_spec" name="Trades POST /trades ignores id param" file="./spec/requests/trades_request_spec.rb" time="0.002873"></testcase>
-<testcase classname="spec.requests.trades_request_spec" name="Trades /trades/:id DELETE returns a 405 status code" file="./spec/requests/trades_request_spec.rb" time="0.066939"></testcase>
-<testcase classname="spec.requests.trades_request_spec" name="Trades /trades/:id PUT returns a 405 status code" file="./spec/requests/trades_request_spec.rb" time="0.002528"></testcase>
-<testcase classname="spec.requests.trades_request_spec" name="Trades /trades/:id PATCH returns a 405 status code" file="./spec/requests/trades_request_spec.rb" time="0.002849"></testcase>
-<testcase classname="spec.requests.trades_request_spec" name="Trades GET /trades/:id returns the serialized trade object" file="./spec/requests/trades_request_spec.rb" time="0.004035"></testcase>
-<testcase classname="spec.requests.trades_request_spec" name="Trades GET /trades/:id returns 404 if no trade with id is found" file="./spec/requests/trades_request_spec.rb" time="0.002791"></testcase>
-<testcase classname="spec.requests.trades_request_spec" name="Trades GET /trades/:id returns http success" file="./spec/requests/trades_request_spec.rb" time="0.003858"></testcase>
-<testcase classname="spec.requests.trades_request_spec" name="Trades GET /trades returns a serialized collection of all trades" file="./spec/requests/trades_request_spec.rb" time="0.004242"></testcase>
-<testcase classname="spec.requests.trades_request_spec" name="Trades GET /trades filters can be combined" file="./spec/requests/trades_request_spec.rb" time="0.003387"></testcase>
-<testcase classname="spec.requests.trades_request_spec" name="Trades GET /trades returns http success" file="./spec/requests/trades_request_spec.rb" time="0.002756"></testcase>
-<testcase classname="spec.requests.trades_request_spec" name="Trades GET /trades filters by user_id" file="./spec/requests/trades_request_spec.rb" time="0.002784"></testcase>
-<testcase classname="spec.requests.trades_request_spec" name="Trades GET /trades filters by trade_type" file="./spec/requests/trades_request_spec.rb" time="0.004080"></testcase>
+<testcase classname="spec.requests.trades_request_spec" name="Trades /trades/:id PATCH returns a 405 status code" file="./spec/requests/trades_request_spec.rb" time="0.058429"></testcase>
+<testcase classname="spec.requests.trades_request_spec" name="Trades /trades/:id PUT returns a 405 status code" file="./spec/requests/trades_request_spec.rb" time="0.002411"></testcase>
+<testcase classname="spec.requests.trades_request_spec" name="Trades /trades/:id DELETE returns a 405 status code" file="./spec/requests/trades_request_spec.rb" time="0.001961"></testcase>
+<testcase classname="spec.requests.trades_request_spec" name="Trades GET /trades/:id returns http success" file="./spec/requests/trades_request_spec.rb" time="0.003374"></testcase>
+<testcase classname="spec.requests.trades_request_spec" name="Trades GET /trades/:id returns 404 if no trade with id is found" file="./spec/requests/trades_request_spec.rb" time="0.002305"></testcase>
+<testcase classname="spec.requests.trades_request_spec" name="Trades GET /trades/:id returns the serialized trade object" file="./spec/requests/trades_request_spec.rb" time="0.002895"></testcase>
+<testcase classname="spec.requests.trades_request_spec" name="Trades GET /trades filters by user_id" file="./spec/requests/trades_request_spec.rb" time="0.002865"></testcase>
+<testcase classname="spec.requests.trades_request_spec" name="Trades GET /trades filters by trade_type" file="./spec/requests/trades_request_spec.rb" time="0.003083"></testcase>
+<testcase classname="spec.requests.trades_request_spec" name="Trades GET /trades returns a serialized collection of all trades" file="./spec/requests/trades_request_spec.rb" time="0.002929"></testcase>
+<testcase classname="spec.requests.trades_request_spec" name="Trades GET /trades returns http success" file="./spec/requests/trades_request_spec.rb" time="0.002942"></testcase>
+<testcase classname="spec.requests.trades_request_spec" name="Trades GET /trades filters can be combined" file="./spec/requests/trades_request_spec.rb" time="0.003452"></testcase>
+<testcase classname="spec.requests.trades_request_spec" name="Trades POST /trades adds a trade to the database" file="./spec/requests/trades_request_spec.rb" time="0.003789"></testcase>
+<testcase classname="spec.requests.trades_request_spec" name="Trades POST /trades returns the created trade object" file="./spec/requests/trades_request_spec.rb" time="0.003170"></testcase>
+<testcase classname="spec.requests.trades_request_spec" name="Trades POST /trades returns http created" file="./spec/requests/trades_request_spec.rb" time="0.003165"></testcase>
+<testcase classname="spec.requests.trades_request_spec" name="Trades POST /trades ignores id param" file="./spec/requests/trades_request_spec.rb" time="0.003207"></testcase>
 </testsuite>

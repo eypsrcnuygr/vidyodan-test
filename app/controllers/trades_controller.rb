@@ -6,9 +6,9 @@ class TradesController < ApplicationController
 
   before_action -> { convert_times!(params) }, only: [:create]
   def index
-    @trades = Trade.all unless params[:user_id] && params[:trade_type]
-    @trades = Trade.where(trade_type: params[:trade_type]) if params[:trade_type]
-    @trades = Trade.where(user_id: params[:user_id]) if params[:user_id]
+    cases = {'user_id': params[:user_id].presence, 'trade_type': params[:trade_type].presence}
+    @trades = Trade.where(cases.compact)
+    @trades = Trade.all if @trades.length.zero?
     render json: TradesSerializer.new(@trades).to_serialized_json_all, status: 200
   end
 
@@ -35,6 +35,7 @@ class TradesController < ApplicationController
 
   def convert_times!(params)
     params[:timestamp] = params[:timestamp].to_i / 1000
+    params[:timestamp] = DateTime.strptime(params[:timestamp].to_s, '%s')
   end
 
   def record_not_found(exception)
@@ -46,7 +47,6 @@ class TradesController < ApplicationController
   end
 
   def set_params
-    params[:timestamp] = DateTime.strptime(params[:timestamp].to_s, '%s')
     params.permit(:trade_type, :user_id, :symbol, :shares, :price, :timestamp)
   end
 end
