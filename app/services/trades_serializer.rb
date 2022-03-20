@@ -1,28 +1,28 @@
-require 'date'
+# require 'date'
 
-class TradesSerializer
-  def initialize(trades_object)
-    @trade = trades_object
-  end
+# class TradesSerializer
+#   def initialize(trades_object)
+#     @trade = trades_object
+#   end
 
-  def to_serialized_json
-    excepter(@trade)
-  end
+#   def to_serialized_json
+#     excepter(@trade)
+#   end
 
-  def to_serialized_json_all
-    @trade.map do |trade|
-      excepter(trade)
-    end
-  end
+#   def to_serialized_json_all
+#     @trade.map do |trade|
+#       excepter(trade)
+#     end
+#   end
 
-  private
+#   private
 
-  def excepter(trade)
-    parsed_excluded_json = JSON.parse(trade.to_json(except: %i[created_at updated_at]))
-    if parsed_excluded_json['timestamp']
-      parsed_excluded_json['timestamp'] =
-        parsed_excluded_json['timestamp'].to_time.to_i * 1000
-    end
-    parsed_excluded_json
-  end
-end
+#   def excepter(trade)
+#     parsed_excluded_json = JSON.parse(trade.to_json(except: %i[created_at updated_at], methods: [:to_time_method]))
+#     if parsed_excluded_json['timestamp']
+#       parsed_excluded_json['timestamp'] =
+#         parsed_excluded_json['timestamp'].to_time.to_i * 1000
+#     end
+#     parsed_excluded_json
+#   end
+# end

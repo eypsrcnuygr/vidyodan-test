@@ -9,18 +9,18 @@ class TradesController < ApplicationController
     cases = {'user_id': params[:user_id].presence, 'trade_type': params[:trade_type].presence}
     @trades = Trade.where(cases.compact)
     @trades = Trade.all if @trades.length.zero?
-    render json: TradesSerializer.new(@trades).to_serialized_json_all, status: 200
+    render json: @trades.to_json, status: 200
   end
 
   def create
     @trade = Trade.create(set_params)
-    render json: TradesSerializer.new(@trade).to_serialized_json, status: 201
+    render json: @trade.to_json, status: 201
   end
 
   def show
     @trade = Trade.find(params[:id])
 
-    render json: TradesSerializer.new(@trade).to_serialized_json, status: 200
+    render json: @trade.to_json, status: 200
   end
 
   def update
